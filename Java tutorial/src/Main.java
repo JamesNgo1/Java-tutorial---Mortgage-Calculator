@@ -63,15 +63,26 @@ public class Main {
 			
 		}
 		
+		//printing out mortgage and closing scanner
+		System.out.println(mortgageCalculator(loanAmount,monthlyRate,numberOfMonths));
+		scnr.close();
+	}
+	
+	/**
+	 * The purpose of this function is to gather number variables and compile to find the mortgage
+	 * @param loan
+	 * @param monthRate
+	 * @param numberOfMonths
+	 * @return
+	 */
+	public static String mortgageCalculator (int loan, double monthRate, int numberOfMonths)
+	{
 		//Below is the mathmatical formula of a mortgage.
-		double mortgage = loanAmount * ((monthlyRate * Math.pow(monthlyRate + 1, numberOfMonths) / (Math.pow(monthlyRate + 1, numberOfMonths) - 1) ) );
+		double mortgage = loan * ((monthRate * Math.pow(monthRate + 1, numberOfMonths) / (Math.pow(monthRate + 1, numberOfMonths) - 1) ) );
 		
 		//formatted along with the USD currency symbol
 		String mortgageFormatted = NumberFormat.getCurrencyInstance().format(mortgage);
-		
-		//printing out mortgage and closing scanner
-		System.out.println(mortgageFormatted);
-		scnr.close();
+		return mortgageFormatted;
 	}
 
 }
